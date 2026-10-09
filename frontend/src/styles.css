@@ -1,0 +1,568 @@
+/* File: styles.css
+ * Description: Styles the responsive AgencyBridge case workspace.
+ * Author: Michael Burns <mdburnsjr@gmail.com>
+ * Created: 2026-10-08
+ * Last Modified: 2026-10-08 by Michael Burns
+ * Dependencies: None
+ */
+
+/* Shared colors keep the page consistent without a styling library. */
+:root {
+  font-family: "Segoe UI", sans-serif;
+  color: #213b36;
+  background: #f6f7f3;
+  font-synthesis: none;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+button,
+select {
+  font: inherit;
+}
+a {
+  color: inherit;
+}
+.workspace {
+  display: flex;
+  min-height: 100vh;
+}
+.sidebar {
+  width: 245px;
+  flex-shrink: 0;
+  background: #153e39;
+  color: #f4f8ee;
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  font-size: 21px;
+  font-weight: 650;
+  letter-spacing: -0.7px;
+}
+.brand-mark {
+  display: grid;
+  place-items: center;
+  background: #c6dda2;
+  color: #153e39;
+  height: 35px;
+  width: 35px;
+  border-radius: 9px;
+}
+.sidebar-caption {
+  font-size: 10px;
+  letter-spacing: 1.7px;
+  margin: 58px 0 18px;
+  color: #a7bdb3;
+}
+.nav-active {
+  border: 1px solid #52736a;
+  border-radius: 6px;
+  padding: 13px;
+  background: #2b5048;
+  display: flex;
+  justify-content: space-between;
+}
+.nav-active span {
+  color: #b9d49b;
+  font-size: 12px;
+}
+.sidebar-note {
+  margin-top: auto;
+  padding-top: 60px;
+  font-size: 13px;
+}
+.sidebar-note p {
+  color: #b9ccc3;
+  line-height: 1.7;
+  font-size: 12px;
+}
+.status-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #c6dda2;
+  margin-right: 7px;
+}
+main {
+  flex: 1;
+  min-width: 0;
+  max-width: 1400px;
+  padding: 0 48px;
+}
+.topbar {
+  min-height: 83px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #dce3d9;
+  font-size: 12px;
+  color: #5b6e65;
+}
+.demo-tag {
+  font-size: 10px;
+  letter-spacing: 1.3px;
+  border: 1px solid #cbd6c6;
+  border-radius: 30px;
+  padding: 7px 10px;
+}
+.page-heading {
+  padding: 40px 0 24px;
+}
+.eyebrow {
+  color: #597563;
+  letter-spacing: 2px;
+  font-size: 10px;
+  font-weight: 700;
+}
+h1 {
+  font-size: clamp(32px, 3.5vw, 49px);
+  line-height: 1.12;
+  letter-spacing: -1.8px;
+  font-weight: 550;
+  margin: 18px 0;
+}
+.intro {
+  color: #617168;
+  font-size: 14px;
+  line-height: 1.7;
+}
+.scope-note {
+  display: flex;
+  gap: 15px;
+  background: #eaf0e2;
+  border-left: 3px solid #809b65;
+  padding: 15px 18px;
+  font-size: 12px;
+  line-height: 1.6;
+}
+.scope-note strong {
+  white-space: nowrap;
+}
+.case-section {
+  padding: 30px 0;
+}
+.list-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 23px;
+}
+h2 {
+  font-size: 21px;
+  margin: 0 0 6px;
+  letter-spacing: -0.5px;
+}
+.list-toolbar p {
+  font-size: 12px;
+  color: #647368;
+  margin: 0;
+}
+label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+}
+select,
+button {
+  border: 1px solid #cbd5c8;
+  background: #fff;
+  border-radius: 5px;
+  padding: 9px 12px;
+  color: #213b36;
+}
+button {
+  cursor: pointer;
+}
+:focus-visible {
+  outline: 3px solid #718b40;
+  outline-offset: 3px;
+}
+/* Grid wraps naturally; the small-screen rule below uses a single column. */
+.case-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 17px;
+}
+.case-card {
+  background: #fff;
+  border: 1px solid #dce3d9;
+  border-radius: 8px;
+  padding: 22px;
+}
+.card-top,
+.card-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+.case-id {
+  font-size: 10px;
+  color: #68796c;
+  letter-spacing: 1px;
+}
+.priority {
+  font-size: 10px;
+  padding: 5px 8px;
+  border-radius: 4px;
+  text-transform: capitalize;
+}
+.high {
+  background: #fbece4;
+  color: #98451f;
+}
+.medium {
+  background: #f5efd6;
+  color: #76601c;
+}
+.low {
+  background: #e7eee8;
+  color: #43684c;
+}
+h3 {
+  font-size: 17px;
+  line-height: 1.4;
+  margin: 21px 0 8px;
+  font-weight: 600;
+}
+.summary {
+  color: #667269;
+  line-height: 1.7;
+  font-size: 13px;
+  min-height: 45px;
+}
+.card-bottom {
+  border-top: 1px solid #edf0e8;
+  margin-top: 22px;
+  padding-top: 16px;
+  font-size: 11px;
+  color: #596d5f;
+}
+.card-bottom time {
+  white-space: nowrap;
+}
+.result-count {
+  font-size: 11px;
+  color: #68796c;
+  margin-top: 18px;
+}
+.message {
+  padding: 30px;
+  border: 1px dashed #bac9b8;
+  border-radius: 8px;
+}
+.error {
+  color: #94431f;
+}
+footer {
+  border-top: 1px solid #dce3d9;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px 0;
+  font-size: 11px;
+  color: #67786b;
+}
+@media (max-width: 1000px) {
+  .sidebar {
+    width: 210px;
+    padding: 26px 18px;
+  }
+  main {
+    padding: 0 26px;
+  }
+  .case-grid {
+    grid-template-columns: 1fr;
+  }
+  .scope-note {
+    flex-direction: column;
+    gap: 4px;
+  }
+}
+@media (max-width: 640px) {
+  .workspace {
+    display: block;
+  }
+  .sidebar {
+    width: 100%;
+    padding: 18px 22px;
+  }
+  .sidebar-caption,
+  .nav-active,
+  .sidebar-note {
+    display: none;
+  }
+  main {
+    padding: 0 20px;
+  }
+  .topbar {
+    min-height: 65px;
+  }
+  .page-heading {
+    padding-top: 25px;
+  }
+  .list-toolbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  footer {
+    flex-direction: column;
+  }
+}
+
+/* Form controls share native browser behavior; labels remain visible at all times. */
+input,
+textarea {
+  font: inherit;
+  color: inherit;
+  border: 1px solid #b9c8b5;
+  border-radius: 5px;
+  padding: 10px;
+  background: white;
+  min-width: 0;
+}
+textarea {
+  resize: vertical;
+}
+button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+.primary {
+  background: #214e40;
+  color: white;
+  border-color: #214e40;
+}
+.startup {
+  margin: 60px auto;
+  max-width: 800px;
+}
+.sidebar nav {
+  display: grid;
+  gap: 8px;
+}
+.sidebar nav button {
+  width: 100%;
+  text-align: left;
+  color: #f4f8ee;
+  font-size: 14px;
+}
+.nav-button {
+  display: flex;
+  justify-content: space-between;
+  background: transparent;
+  border: 1px solid transparent;
+  padding: 13px;
+}
+.nav-button span {
+  color: #b9d49b;
+  font-size: 12px;
+}
+.identity-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px 0;
+  flex-wrap: wrap;
+}
+.identity-bar select {
+  max-width: 100%;
+}
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.panel {
+  background: white;
+  border: 1px solid #dce3d9;
+  border-radius: 8px;
+  padding: 24px;
+  margin-bottom: 20px;
+}
+.panel p {
+  font-size: 13px;
+  line-height: 1.7;
+}
+fieldset {
+  border: 0;
+  padding: 0;
+  margin: 16px 0 0;
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+fieldset label {
+  display: grid;
+  gap: 7px;
+}
+fieldset button {
+  justify-self: start;
+}
+.owner-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  border-top: 1px solid #e2e8de;
+  margin-top: 20px;
+  padding-top: 8px;
+}
+.detail-title {
+  margin-top: 20px;
+}
+.case-summary {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.detail-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.muted {
+  color: #617168;
+  font-size: 12px;
+}
+.back-button {
+  margin-bottom: 20px;
+}
+.success {
+  background: #e4efdc;
+  border-left: 3px solid #587e40;
+  padding: 14px;
+  font-size: 13px;
+}
+.status {
+  display: inline-block;
+  padding: 5px 9px;
+  font-size: 11px;
+  border-radius: 4px;
+  text-transform: capitalize;
+}
+.pending {
+  background: #f5efd6;
+  color: #76601c;
+}
+.accepted {
+  background: #e4edf8;
+  color: #315d86;
+}
+.completed {
+  background: #e4efdc;
+  color: #416331;
+}
+.referral-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 18px 0;
+  border-bottom: 1px solid #e2e8de;
+  font-size: 13px;
+}
+.timeline {
+  padding-left: 18px;
+}
+.timeline li {
+  padding: 0 0 20px 7px;
+  font-size: 13px;
+}
+.timeline span,
+.timeline time {
+  display: block;
+  font-size: 11px;
+  color: #617168;
+  margin-top: 7px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  text-align: left;
+}
+caption {
+  text-align: left;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+th,
+td {
+  padding: 13px 10px;
+  border-bottom: 1px solid #e2e8de;
+}
+tbody th {
+  font-weight: 400;
+}
+.lookup-form {
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid #dce3d9;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+.lookup-form input {
+  width: 115px;
+}
+.lookup-form p {
+  width: 100%;
+  margin: 0;
+  color: #617168;
+  font-size: 12px;
+}
+h1 {
+  white-space: pre-line;
+}
+.summary,
+h3 {
+  overflow-wrap: anywhere;
+}
+@media (max-width: 1100px) {
+  .detail-columns,
+  .owner-actions {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 640px) {
+  .sidebar nav {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 16px;
+  }
+  .sidebar nav button {
+    display: block;
+    width: auto;
+  }
+  .sidebar nav span {
+    display: none;
+  }
+  .identity-bar label {
+    display: grid;
+    width: 100%;
+  }
+  .topbar {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .panel {
+    padding: 18px;
+  }
+  .actions label {
+    flex-wrap: wrap;
+  }
+}
